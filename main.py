@@ -30,5 +30,8 @@ context = { 'p1_8' : "World company",
 'p3_9' : "World company",
 'p3_10' : "World company",
 }
+ 
+
+
 doc.render(context)
 doc.save("generated_doc.docx")
