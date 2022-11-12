@@ -58,23 +58,34 @@ def generateData(df):
 
 
 i = 0
-while i < 20:
+
+# variabila asta zice la cate linii din tabel sa se uite python
+# numarul de linii e mereu mai mare decat numarul de fise pe care le
+# genereaza pt ca majoritatea disciplinelor au mai multe linii in tabel
+nrLinii = 20
+while i < nrLinii:
     materie = {}
     while True:
+        # rand contine un rand din tabel
         rand = df.loc[[i]]
         for item in rand:
+            # ne intereseaza daca suntem la coloana care ne zice
+            # daca e vorba de nr de ore de curs, seminar, laborator, proiect
             if item == 'formapred':
                 materie[rand['formapred'].values[0].strip()
                         ] = rand["numarore"].values[0]
             else:
+                # daca suntem la o alta coloana, adaugam in dictionarul materie
                 materie[item] = rand[item].values[0]
         if df['nrcrt'][i + 1] != df['nrcrt'][i]:
             break
         else:
             i += 1
+    # acum avem un dictionar cu toate datele despre o materie
     print(materie)
-
+    # generam fisierul docx
     doc.render(generateData(materie))
+    # salvam fisierul docx
     doc.save(f"./files/curs_{materie['nrcrt'].replace('.','_')}.docx")
 
     i += 1
