@@ -23,28 +23,34 @@ def generateData(df):
     fisa["p2_7_b"] = df['obligativ']  # optionalitate
     # p3_1 este  numarul de ore pe saptamana; aici o sa adaugam cursuri , seminarii, laboratoare, ....
     fisa["p3_1"] = 0
+
+    # numar de ore pe semenstru
+    fisa["p3_4"] = 0
     if "CURS" in df:
         fisa["p3_2"] = df['CURS']  # curs
         fisa["p3_1"] += int(df['CURS'])
+        fisa["p3_4"] += 14 * int(df['CURS'])
     else:
         fisa["p3_2"] = ""
     if "SEMINAR" in df:
         fisa["p3_3_a"] = df['SEMINAR']
         fisa["p3_1"] += int(df['SEMINAR'])
+        fisa["p3_4"] += 14 * int(df['CURS'])
     else:
         fisa["p3_3_a"] = ""
     if "LABORATOR" in df:
         fisa["p3_3_b"] = df['LABORATOR']
         fisa["p3_1"] += int(df['LABORATOR'])
+        fisa["p3_4"] += 14 * int(df['LABORATOR'])
     else:
         fisa["p3_b"] = ""
     if "PROIECT" in df:
         fisa["p3_3_c"] = df['PROIECT']
         fisa["p3_1"] += int(df['PROIECT'])
+        fisa["p3_4"] += 14 * int(df['PROIECT'])
     else:
         fisa["p3_3_c"] = ""
 
-    fisa["p3_4"] = df['orestudindiv']  # numar de ore pe semenstru ?
     fisa["p3_5"] = ""
     fisa["p3_6_a"] = ""
     fisa["p3_6_b"] = ""
