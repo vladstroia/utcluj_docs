@@ -21,21 +21,26 @@ def generateData(df):
     fisa["p2_6"] = df['examen']
     fisa["p2_7_a"] = df['categdisc']  # categorie formtiva
     fisa["p2_7_b"] = df['obligativ']  # optionalitate
-    fisa["p3_1"] = df['numarore']  # numar ore pe saptamana
+    # numar ore pe saptamana; aici o sa adaugam cursuri , seminar, laborator, ....
+    fisa["p3_1"] = 0
     if "CURS" in df:
         fisa["p3_2"] = df['CURS']  # curs
+        fisa["p3_1"] += int(df['CURS'])
     else:
         fisa["p3_2"] = ""
     if "SEMINAR" in df:
         fisa["p3_3_a"] = df['SEMINAR']
+        fisa["p3_1"] += int(df['SEMINAR'])
     else:
         fisa["p3_3_a"] = ""
     if "LABORATOR" in df:
         fisa["p3_3_b"] = df['LABORATOR']
+        fisa["p3_1"] += int(df['LABORATOR'])
     else:
         fisa["p3_b"] = ""
     if "PROIECT" in df:
         fisa["p3_3_c"] = df['PROIECT']
+        fisa["p3_1"] += int(df['PROIECT'])
     else:
         fisa["p3_3_c"] = ""
 
