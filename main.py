@@ -21,7 +21,7 @@ def generateData(df):
     fisa["p2_6"] = df['examen']
     fisa["p2_7_a"] = df['categdisc']  # categorie formtiva
     fisa["p2_7_b"] = df['obligativ']  # optionalitate
-    # numar ore pe saptamana; aici o sa adaugam cursuri , seminar, laborator, ....
+    # p3_1 este  numarul de ore pe saptamana; aici o sa adaugam cursuri , seminarii, laboratoare, ....
     fisa["p3_1"] = 0
     if "CURS" in df:
         fisa["p3_2"] = df['CURS']  # curs
