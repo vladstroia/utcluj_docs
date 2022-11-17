@@ -35,7 +35,7 @@ def generateData(df):
     if "SEMINAR" in df:
         fisa["p3_3_a"] = df['SEMINAR']
         fisa["p3_1"] += int(df['SEMINAR'])
-        fisa["p3_4"] += 14 * int(df['CURS'])
+        fisa["p3_4"] += 14 * int(df['SEMINAR'])
     else:
         fisa["p3_3_a"] = ""
     if "LABORATOR" in df:
