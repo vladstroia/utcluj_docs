@@ -19,7 +19,7 @@ for i in range(20):
             f'Buna ziua, \n Va trimit atasat fisa disciplinei pentru cursul {nrdisc} pentru anul universitar 2022-2023. \n Va multumesc, \n Vlad']
         print(df["nrdisc"][i], df["email"][i])
         try:
-            yag.send('danielvbanyai@gmail.com',
+            yag.send('fisadisciplinei@gmail.com',
                      f'Fisa Disciplinei {nrdisc}', contents, attachments=[f'files/curs_{nrdisc.replace(".","_")}.docx'])
         except:
             print(f"Did not work for {nrdisc}")
